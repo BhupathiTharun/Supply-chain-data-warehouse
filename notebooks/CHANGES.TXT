@@ -2,64 +2,99 @@ RENAME SOME COLUMNS LIKE SELLER_NAME,DELIVERY_BOY_NAME,SELLER_LOCATION,DELIVER_B
 
 
 
-5. Total Revenue Generated
-Business question:
-	How much revenue did the company generate?
-Concepts:
-SUM()
 
-6. Monthly Revenue Trend
-Business question:
-	Is revenue growing month over month?
-Concepts:
-	• DATE functions 
-	• GROUP BY 
+Which category generates the highest revenue?
+Which category has the highest return rate?
+Which products are underperforming?
+Which sellers generate the highest revenue?
+Which sellers have poor ratings?
+                                    Which payment method is most popular?
+Which regions generate the most revenue?
+                                    Which cities have the highest order volume?
+                                    Which months have peak sales?
+                                    Is delivery delay affecting customer ratings?
+                                    Does a higher discount increase revenue?
+Which products are returned most often?
+Which brands have the highest revenue?
+Which states have the highest return rate?
+Which customer segments spend the most?
 
-7. Month-over-Month Revenue Growth
-Very common interview question.
-Concepts:
-	• CTE 
-	• LAG() 
-	• Window Functions 
 
-8. Year-over-Year Revenue Growth
-Business question:
-	Compare this year's sales with last year.
-Concepts:
-	• LAG() 
-	• Window Functions 
 
-9. Top 10 Revenue Generating Products
-Business problem:
-	Which products contribute most revenue?
-Concepts:
-	• GROUP BY 
-	• ORDER BY 
-	• LIMIT 
 
-10. Top Categories by Revenue
-Example output:
-Category	Revenue
-Electronics	50M
-Fashion	30M
 
-11. Average Order Value (AOV)
-Formula:
+1. Univariate Analysis (One Variable)
+Numerical Columns
 
-Total Revenue / Total Orders
-Concepts:
-Aggregation
+Purpose: Understand distribution, outliers, and summary statistics.
 
-12. Revenue Contribution Percentage by Category
-Business question:
-	Which category contributes 40% of revenue?
-Concepts:
-Window SUM()
+Column	What to Check	Plot
+net_amount	Revenue distribution	Histogram + Boxplot
+quantity	Purchase quantity	Histogram
+unit_price	Product pricing	Histogram + Boxplot
+gross_amount	Distribution	Histogram
+discount_amount	Discount spread	Histogram
+shipping_fee	Distribution	Histogram
+seller_rating	Rating distribution	Histogram
+customer_rating	Rating distribution	Histogram
+delivery_rating	Rating distribution	Histogram
+delivery_delay_days	Delay distribution	Histogram + Boxplot
+refund_amount	Refund distribution	Histogram
+sentiment_score	Customer sentiment	Histogram
+For each numerical column
+Mean
+Median
+Min
+Max
+Standard Deviation
+Missing Values
+Outliers
+Distribution
+Categorical Columns
+Column	What to Check	Plot
+category	Product mix	Countplot
+brand	Brand frequency	Countplot
+order_status	Order status	Countplot
+payment_method	Payment mix	Countplot
+payment_provider	Provider usage	Countplot
+return_flag	Return distribution	Countplot
+state	Orders by state	Countplot
+city	Orders by city	Countplot
+region	Regional distribution	Countplot
+vehicle_type	Delivery vehicles	Countplot
+employment_type	Delivery staff type	Countplot
+For each categorical column
+Frequency
+Percentage
+Missing Values
+2. Bivariate Analysis (Two Variables)
 
-13. Identify Low Performing Products
-Example:
-Products with:
-	• sales < average sales 
-	• revenue < threshold 
-Concepts:
-Subquery
+These are the most important business analyses.
+
+Business Question	Columns	Plot
+Which category earns most revenue?	category vs net_amount	Bar
+Which brand earns most revenue?	brand vs net_amount	Bar
+Which seller earns most revenue?	seller_name vs net_amount	Bar
+Which city generates most revenue?	city vs net_amount	Bar
+Which payment method generates more revenue?	payment_method vs net_amount	Bar
+Does discount increase sales?	discount_amount vs net_amount	Scatter
+Does price affect revenue?	unit_price vs net_amount	Scatter
+Does delay affect rating?	delivery_delay_days vs customer_rating	Scatter
+Does seller rating affect revenue?	seller_rating vs net_amount	Scatter
+Which category has most returns?	category vs return_flag	Bar
+Which seller has highest delay?	seller_name vs delivery_delay_days	Bar
+Monthly revenue trend	Month vs net_amount	Line
+3. Multivariate Analysis (3+ Variables)
+
+These show deeper business insights.
+
+Business Question	Variables	Plot
+Revenue by category over time	Month + category + net_amount	Multi-line
+Revenue by city and category	city + category + net_amount	Heatmap
+Seller rating vs revenue by category	seller_rating + category + net_amount	Scatter (hue=category)
+Delivery delay by region	region + delivery_delay_days + category	Boxplot
+Customer rating by category	category + customer_rating + return_flag	Boxplot
+Revenue by payment method over time	Month + payment_method + net_amount	Line
+Returns by category and region	category + region + return_flag	Heatmap
+Brand performance by category	brand + category + net_amount	Grouped bar
+Delivery delay by vehicle type	vehicle_type + delivery_delay_days + region	Boxplot
