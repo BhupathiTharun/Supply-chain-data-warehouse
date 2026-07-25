@@ -1,1 +1,65 @@
 RENAME SOME COLUMNS LIKE SELLER_NAME,DELIVERY_BOY_NAME,SELLER_LOCATION,DELIVER_BOY_MOBILE_NO
+
+
+
+5. Total Revenue Generated
+Business question:
+	How much revenue did the company generate?
+Concepts:
+SUM()
+
+6. Monthly Revenue Trend
+Business question:
+	Is revenue growing month over month?
+Concepts:
+	• DATE functions 
+	• GROUP BY 
+
+7. Month-over-Month Revenue Growth
+Very common interview question.
+Concepts:
+	• CTE 
+	• LAG() 
+	• Window Functions 
+
+8. Year-over-Year Revenue Growth
+Business question:
+	Compare this year's sales with last year.
+Concepts:
+	• LAG() 
+	• Window Functions 
+
+9. Top 10 Revenue Generating Products
+Business problem:
+	Which products contribute most revenue?
+Concepts:
+	• GROUP BY 
+	• ORDER BY 
+	• LIMIT 
+
+10. Top Categories by Revenue
+Example output:
+Category	Revenue
+Electronics	50M
+Fashion	30M
+
+11. Average Order Value (AOV)
+Formula:
+
+Total Revenue / Total Orders
+Concepts:
+Aggregation
+
+12. Revenue Contribution Percentage by Category
+Business question:
+	Which category contributes 40% of revenue?
+Concepts:
+Window SUM()
+
+13. Identify Low Performing Products
+Example:
+Products with:
+	• sales < average sales 
+	• revenue < threshold 
+Concepts:
+Subquery
