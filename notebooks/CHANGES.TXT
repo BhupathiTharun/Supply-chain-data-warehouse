@@ -84,10 +84,11 @@ Does seller rating affect revenue?	seller_rating vs net_amount	Scatter
 Which category has most returns?	category vs return_flag	Bar
 Which seller has highest delay?	seller_name vs delivery_delay_days	Bar
 Monthly revenue trend	Month vs net_amount	Line
+
+
+
 3. Multivariate Analysis (3+ Variables)
-
 These show deeper business insights.
-
 Business Question	Variables	Plot
 Revenue by category over time	Month + category + net_amount	Multi-line
 Revenue by city and category	city + category + net_amount	Heatmap
